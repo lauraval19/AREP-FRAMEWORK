@@ -1,6 +1,10 @@
 package org.example;
 import java.net.*;
 import java.io.*;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+
 public class HttpServer {
 public static void main(String[] args) throws IOException {
         ServerSocket serverSocket = null;
@@ -34,7 +38,7 @@ public static void main(String[] args) throws IOException {
                     if(cadena[1].startsWith("/hello")){
                         body = "Hello " + cadena[1].substring(12);
                     }else{
-                        body = getForm();
+                        body = getFile("index.html");
                     }
                     esPrimeraLinea = false;
                 }
@@ -45,10 +49,13 @@ public static void main(String[] args) throws IOException {
                 }
 
             }
+
+
+
             outputLine = "HTTP/1.1 200 OK\r\n"
                     + "Content-Type: text/html\r\n"
                     + "\r\n"
-                    + body;
+                    + getFile("index.html");
             out.println(outputLine);
 
             out.close();
@@ -56,6 +63,23 @@ public static void main(String[] args) throws IOException {
             clientSocket.close();
         }
         serverSocket.close();
+    }
+
+    public static String getFile(String pathf){
+        StringBuilder output = new StringBuilder();
+        Path path = Paths.get("target/classes/public/"+pathf);
+        try (InputStream inp = Files.newInputStream(path);
+             BufferedReader reader =
+                     new BufferedReader(new InputStreamReader(inp))) {
+            String line = null;
+            while ((line = reader.readLine()) != null) {
+                System.out.println(line);
+                output.append(line);
+            }
+        } catch (IOException x) {
+            System.err.println(x);
+        }
+        return output.toString();
     }
     public static String getForm(){
             return "<!DOCTYPE html>\n" +
