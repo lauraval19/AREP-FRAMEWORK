@@ -11,6 +11,9 @@ Para el funcionamiento de esta página, con el path /public/ junto al arhivo que
 
 Al ingresar con el path "/public/index.html" el servidor retorna todos los archivos solicitados, como se observa carga un archivo html que contiene un arhivo js y una imagen. 
 
+![imagen](https://user-images.githubusercontent.com/98195579/189562208-9b4e24a7-1258-4760-bef2-220ae5436098.png)
+
+
 ### Cargar imagen
 
 ![imagen](https://user-images.githubusercontent.com/98195579/189562008-6acfaa18-80ef-439f-8e77-aa9f3911eea9.png)
