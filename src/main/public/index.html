@@ -12,8 +12,21 @@
     <label for="name">Name:</label><br>
     <input type="text" id="name" name="name" value="John"><br><br>
     <input type="button" value="Submit" onclick="loadGetMsg()">
-    <img src="/public/elefante.jpg">
-    <script src="scripts/main.js"></script>
 </form>
+<div id="getrespmsg"></div>
+
+<script>
+            function loadGetMsg() {
+                let nameVar = document.getElementById("name").value;
+                const xhttp = new XMLHttpRequest();
+                xhttp.onload = function() {
+                    document.getElementById("getrespmsg").innerHTML =
+                    this.responseText;
+                }
+                xhttp.open("GET", "/hello?name="+nameVar);
+                xhttp.send();
+            }
+        </script>
+<img src="/public/elefante.jpg">
 </body>
 </html>
