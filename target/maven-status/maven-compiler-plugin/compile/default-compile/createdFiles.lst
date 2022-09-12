@@ -1,0 +1,8 @@
+edu\eci\arem\MysparkServer.class
+URLReader.class
+edu\eci\arem\HttpServer.class
+edu\eci\arem\TypeFile\Typefiles.class
+edu\eci\arem\Reponse\Response.class
+App.class
+EchoServer.class
+EchoClient.class

@@ -1,4 +1,4 @@
-package org.example;
+package edu.eci.arem;
 
 import static org.junit.Assert.assertTrue;
 
