@@ -42,6 +42,6 @@ public class MysparkServer {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "error";
+        return Response.getResponse();
     }
 }
